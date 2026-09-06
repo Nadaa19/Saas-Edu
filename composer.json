@@ -46,6 +46,7 @@
     "scripts": {
     "setup": [
         "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+        "@composer install --no-interaction --prefer-dist --optimize-autoloader",
         "@php artisan key:generate --ansi"
     ],
     "ci:check": "echo 'CI Check Passed Successfully'",
