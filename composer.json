@@ -59,7 +59,7 @@
         "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\""
     ],
     "ci:check": "echo 'CI Check Skipped Cleanly'"
-}
+},
     "extra": {
         "laravel": {
             "dont-discover": []
