@@ -14,30 +14,21 @@ class LoginController extends Controller
     }
 
     public function login(Request $request)
-    {
-        if (Auth::guard('dash')->attempt([
-            'email' => $request->email,
-            'password' => $request->password,
-        ])) {
+{
+    $credentials = $request->only('email', 'password');
 
-            return view('dashboard.pages.index');
-        } elseif (Auth::guard('teacher')->attempt([
-            'email' => $request->email,
-            'password' => $request->password,
-        ])) {
-            return view('dashboard.pages.index');
-
-        }
-
-        return view('dashboard.pages.auth.login-form');
-
+    if (Auth::guard('dash')->attempt($credentials) || Auth::guard('teacher')->attempt($credentials)) {
+        return redirect()->route('dashboard.index'); // أو المسار المخصص للـ Dashboard
     }
 
-    public function logout()
-    {
-        Auth::guard('dash')->logout();
+    return back()->withErrors(['email' => 'بيانات الدخول غير صحيحة']);
+}
 
-        return view('dashboard.pages.auth.login-form');
+public function logout()
+{
+    Auth::guard('dash')->logout();
+    Auth::guard('teacher')->logout();
 
-    }
+    return redirect()->route('login.form');
+}
 }

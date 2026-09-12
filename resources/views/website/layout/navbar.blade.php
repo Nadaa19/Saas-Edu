@@ -123,6 +123,12 @@
                 >
                     Contact
                 </a>
+                 <a
+                    href="/plans"
+                    class="text-sm font-medium text-slate-500 hover:text-indigo-600 transition"
+                >
+                    Plans
+                </a>
 
             </div>
 

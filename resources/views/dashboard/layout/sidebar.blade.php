@@ -444,6 +444,51 @@
 
             </a>
 
+
+
+            {{-- plans --}}
+            <a
+                href="{{route('plans.index')}}"
+                class="
+                    group
+                    flex
+                    items-center
+                    gap-3
+                    px-3
+                    py-3
+                    rounded-xl
+                    text-blue-100/70
+                    hover:bg-white/10
+                    hover:text-white
+                    transition
+                "
+            >
+
+                <svg
+                    class="
+                        w-5
+                        h-5
+                        text-blue-200/70
+                        group-hover:text-indigo-300
+                    "
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M4 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2V6z"
+                    />
+                </svg>
+
+                <span class="text-sm">
+                    Plans
+                </span>
+
+            </a>
+
             <a
                 href="{{route('dash.logout')}}"
                 class="

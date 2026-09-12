@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Order;
+use App\Models\Plan;
 use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -78,5 +79,10 @@ class EducationController extends Controller
 
         return view('website.pages.lesson-details', compact('lesson'));
 
+    }
+
+    public function plans(){
+        $plans = Plan::all();
+        return view('website.pages.plans',compact('plan'));
     }
 }

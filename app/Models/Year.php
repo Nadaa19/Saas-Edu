@@ -14,4 +14,7 @@ class Year extends Model
     {
         return $this->hasMany(Subject::class);
     }
+    public function plan(){
+        return $this->hasMany(Plan::class);
+    }
 }

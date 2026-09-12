@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 Route::controller(EducationController::class)->group(function () {
     Route::get('/', 'indexHome');
     Route::get('courses', 'allCourses');
+    Route::get('/plans', 'plans');
+
     Route::get('course/details/{id}', 'courseDetails')->name('course.details');
     Route::get('/instractors', 'allInstractors')->name('all.instractors');
     // Route::get('payment/{id}' , 'payment')->name('payment')->middleware(['auth','verified']);
@@ -16,6 +18,8 @@ Route::controller(EducationController::class)->group(function () {
     Route::get('lesson/detaials/{id}', 'lessonDetails')->name('lesson.details');
 
 });
+
+
 Route::get('profile', function () {
     return view('website.pages.profile');
 })->name('profile.info');

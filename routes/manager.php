@@ -4,6 +4,7 @@ use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\PlansController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\YearController;
@@ -19,6 +20,8 @@ Route::middleware(LoginMaddleware::class)->group(function () {
     Route::resource('years', YearController::class);
     Route::resource('subjects', SubjectController::class);
     Route::resource('teachers', TeacherController::class);
+    Route::resource('plans', PlansController::class);
+
 
     Route::resource('managers', ManagerController::class);
     Route::get('logout', [LoginController::class, 'logout'])->name('dash.logout');
@@ -31,5 +34,5 @@ Route::middleware(DashboardMiddleware::class)->group(function () {
 
 });
 
-Route::get('login/form', [LoginController::class, 'loginForm'])->name('login.form');
+Route::get('login/form', [LoginController::class, 'showLoginForm'])->name('login.form');
 Route::post('login', [LoginController::class, 'login'])->name('dash.login');
